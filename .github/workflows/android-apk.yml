@@ -25,6 +25,7 @@ jobs:
       - name: Use available compile SDK
         run: |
           sed -i 's/compileSdk = 37/compileSdk = 36/g; s/targetSdk = 37/targetSdk = 36/g' app/build.gradle.kts shared/build.gradle
+          sed -i 's/coreKtx = "1.19.0"/coreKtx = "1.17.0"/' gradle/libs.versions.toml
       - name: Build debug APK
         run: bash ./gradlew :app:assembleDebug --stacktrace --no-daemon
       - name: Verify APK signature and ARM64
